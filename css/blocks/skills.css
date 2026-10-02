@@ -1,0 +1,41 @@
+/* Skills: four grouped tiles on the navy block surface, with real logos.
+   (The old React island in skills-widget/ is no longer loaded; folder kept.) */
+.skill-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-sm);text-align:left}
+
+.skill-card{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:flex;flex-direction:column;gap:var(--space-md);
+  padding:var(--space-md) var(--space-lg) var(--space-lg);border-radius:var(--radius-block);
+  background:linear-gradient(170deg,color-mix(in oklab,var(--tone) 14%,var(--color-card-hi)),var(--color-card-lo) 80%);
+  border:1px solid var(--color-glass-rule);
+  transition:border-color var(--dur-short) var(--ease-out);
+}
+.skill-card:hover{border-color:var(--color-glass-hi)}
+/* halftone, same recipe as the project blocks, anchored bottom-right */
+.skill-card::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(color-mix(in oklab,var(--tone) 45%,var(--color-dot)) 1px,transparent 1.5px) 0 0/9px 9px;
+  mask-image:radial-gradient(ellipse 55% 70% at 100% 100%,var(--color-ink),transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse 55% 70% at 100% 100%,var(--color-ink),transparent 70%);
+}
+/* faded watermark of the group's lead logo */
+.skill-mark{position:absolute;z-index:-1;right:calc(-1 * var(--space-md));top:calc(-1 * var(--space-md));
+  width:8rem;height:8rem;opacity:.07;filter:grayscale(1) brightness(3);pointer-events:none}
+.skill-mark svg{width:100%;height:100%}
+
+.skill-card h3{font-size:var(--text-lg)}
+.skill-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--space-xs)}
+.skill-list li{
+  display:flex;align-items:center;gap:var(--space-xs);min-width:0;
+  padding:var(--space-2xs) var(--space-sm) var(--space-2xs) var(--space-2xs);
+  border-radius:var(--radius-pill);background:var(--color-glass);border:1px solid var(--color-glass-rule);
+  font-size:var(--text-sm);color:var(--color-ink);
+  transition:background-color var(--dur-short) var(--ease-out);
+}
+.skill-list li:hover{background:var(--color-glass-hi)}
+.skill-list li span:last-child{white-space:nowrap}
+/* light badge so every brand colour (even NumPy's navy) stays visible */
+.skill-logo{flex:none;display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:50%;background:var(--color-ink)}
+.skill-logo svg{width:1.3rem;height:1.3rem}
+.skill-card .label{margin:auto 0 0;max-width:none;text-transform:none;letter-spacing:0}
+@media(max-width:860px){.skill-grid{grid-template-columns:minmax(0,1fr)}}

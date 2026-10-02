@@ -1,0 +1,72 @@
+/* Hallmark · tokens · theme: studied-DNA (source: vaibhaverma.netlify.app)
+ * Cream page that turns to night lower down; one royal-blue accent.
+ * Contrast on cream: ink-2 9.6:1 · ink-3 5.1:1 · accent 7.4:1.
+ * Contrast on night (.dark): ink-2 10.7:1 · ink-3 7.0:1 · accent 8.7:1.
+ */
+:root{
+  --color-paper:   oklch(96.8% 0.009 85);   /* #F7F4EE cream */
+  --color-paper-2: oklch(98.8% 0.007 89);
+  --color-paper-3: oklch(93.5% 0.012 85);
+  --color-rule:    oklch(90.2% 0.017 85);
+  --color-ink:     oklch(21.8% 0.006 92);
+  --color-ink-2:   oklch(36.9% 0.011 85);
+  --color-ink-3:   oklch(51.8% 0.010 85);
+  --color-accent:  oklch(45.2% 0.241 268);  /* #2436D8 royal blue */
+  --color-focus:   oklch(45.2% 0.241 268);
+  --tone:          var(--color-accent);
+  --color-nav:     oklch(96.8% 0.009 85 / 0.85);
+  --color-tint-1:  oklch(91% 0.045 250);    /* pastel behind project media */
+  --color-tint-2:  oklch(91% 0.035 150);
+  --color-shadow:  oklch(21.8% 0.006 92 / .35);
+  --color-hl-1:    oklch(88% 0.065 268);    /* highlighter sweep: pale royal blue → pale violet */
+  --color-hl-2:    oklch(88% 0.065 300);
+  --color-night:  oklch(18.6% 0.010 98);   /* #14130E: the dark half, and the dot that grows into it */
+
+  /* used by the cards in the dark half (see .dark below) */
+  --color-card-hi:    oklch(25% 0.012 92);
+  --color-card-lo:    oklch(20% 0.010 95);
+  --color-dot:        oklch(36% 0.015 90);
+  --color-glass:      oklch(100% 0 0 / 0.06);
+  --color-glass-hi:   oklch(100% 0 0 / 0.12);
+  --color-glass-rule: oklch(100% 0 0 / 0.12);
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-accent:  'Fraunces', Georgia, serif;   /* upright only: the accent word */
+  --font-mono:    ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 2.6vw, 2rem);
+  --text-2xl: clamp(1.9rem, 4vw, 2.9rem);
+  --text-display: clamp(2.6rem, 6.5vw, 4.75rem);
+
+  --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem;
+  --space-sm: 1rem;     --space-md: 1.5rem;  --space-lg: 2rem;
+  --space-xl: 3rem;     --space-2xl: 4.5rem; --space-3xl: 7rem;
+  --gutter: clamp(1rem, 5vw, 4rem);
+  --page-max: 1200px;
+
+  --radius-card: 16px;
+  --radius-block: 24px;
+  --radius-pill: 999px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-short: 180ms;
+}
+
+/* The page turns dark partway down (studied): same token names, night values. */
+.dark{
+  --color-paper:   var(--color-night);
+  --color-paper-2: oklch(23.1% 0.012 92);
+  --color-paper-3: oklch(26% 0.013 92);
+  --color-rule:    oklch(29% 0.015 90);
+  --color-ink:     oklch(95.3% 0.010 87);
+  --color-ink-2:   oklch(82.1% 0.017 88);
+  --color-ink-3:   oklch(70.3% 0.015 89);
+  --color-accent:  oklch(76.6% 0.108 278);  /* lavender: the blue, lifted for night */
+  --color-focus:   oklch(76.6% 0.108 278);
+  --tone:          oklch(76.6% 0.108 278);
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dhruv Mistry · AI &amp; ML Engineer</title>
+<meta name="description" content="Final-year AI/ML student. Projects, experience, and contact." />
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/blocks/hero.css">
+<link rel="stylesheet" href="css/blocks/projects.css">
+<link rel="stylesheet" href="css/blocks/experience.css">
+<link rel="stylesheet" href="css/blocks/skills.css">
+<link rel="stylesheet" href="css/blocks/awards.css">
+<link rel="stylesheet" href="css/blocks/contact.css">
+</head>
+<body>
+
+<header class="bar">
+  <a class="mark" href="#top" id="mark"></a>
+  <nav>
+    <a class="opt-xs" href="#projects">Work</a><a class="opt" href="#experience">Experience</a><a class="opt" href="#skills">Skills</a><a href="#contact">Contact</a>
+    <a class="pill-link" id="navResume" target="_blank" rel="noopener">Résumé</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow dot" id="heroRole"></p>
+    <h1 id="heroHeadline"></h1>
+    <p class="lede" id="heroIntro"></p>
+    <div class="hero-actions">
+      <a class="btn btn-dark" id="heroResume" target="_blank" rel="noopener">Résumé</a>
+      <a class="btn btn-outline" id="heroGithub" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-outline" id="heroLinkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Selected work</p>
+      <h2>Things I've <span class="acc">built</span>.</h2>
+    </div>
+    <div class="proj-list" id="projList"></div>
+  </div>
+</section>
+
+<!-- ============ THE PAGE TURNS DARK ============ -->
+<div class="flip">
+  <div class="flip-stage">
+    <div class="flip-dot" aria-hidden="true"></div>
+    <p class="flip-line dark">Projects are the practice.<br>Here's the <span class="acc">real work</span>.</p>
+  </div>
+</div>
+<div class="dark">
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Experience</p>
+      <h2>Where I've <span class="acc">worked</span>.</h2>
+    </div>
+    <div class="job"><h3 id="jobRole"></h3></div>
+    <div class="xp-grid" id="xpGrid"></div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Skills &amp; tools</p>
+      <h2>Tools I <span class="acc">reach for</span>.</h2>
+    </div>
+    <div class="skill-grid" id="skillGrid"></div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Achievements</p>
+      <h2>A few <span class="acc">wins</span>.</h2>
+    </div>
+    <div class="award-stats" id="awardStats"></div>
+    <ul class="awards" id="awardList"></ul>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2 id="closing"></h2>
+    <p class="blurb" id="contactBlurb"></p>
+    <div class="close-actions">
+      <a class="btn btn-light" id="mail">Email me</a>
+      <a class="btn btn-outline" id="footResume" target="_blank" rel="noopener">View résumé</a>
+    </div>
+    <nav class="close-links">
+      <a id="footGithub" target="_blank" rel="noopener">GitHub</a>
+      <a id="footLinkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+    <footer id="footLine"></footer>
+  </div>
+</section>
+
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

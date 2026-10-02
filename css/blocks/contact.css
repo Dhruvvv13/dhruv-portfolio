@@ -1,0 +1,11 @@
+/* Studied close: centred statement with one accent word, two pill buttons, links, a quiet line. */
+#contact{text-align:center;padding-bottom:var(--space-2xl)}
+#contact .wrap > *{margin-inline:auto}
+#closing{font-size:clamp(2.5rem,6.5vw,4.75rem);max-width:14ch;margin-bottom:var(--space-md)}
+#contact .blurb{color:var(--color-ink-2);white-space:pre-line;max-width:52ch;margin-bottom:var(--space-lg)}
+.close-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--space-xs);margin-bottom:var(--space-lg)}
+.close-actions .btn{font-size:var(--text-md);padding:var(--space-sm) var(--space-lg)}
+.close-links{display:flex;justify-content:center;gap:var(--space-lg);margin-bottom:var(--space-xl)}
+.close-links a{color:var(--color-ink-2);text-decoration:none}
+.close-links a:hover{color:var(--color-ink)}
+#contact footer{font-size:var(--text-xs);letter-spacing:.04em;color:var(--color-ink-3)}

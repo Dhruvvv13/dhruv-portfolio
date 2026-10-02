@@ -1,0 +1,16 @@
+/* Hero: centred label · headline with one serif accent word · one-line intro,
+   vertically centred in most of the first screen. */
+.hero{min-height:calc(85svh - 4rem);display:flex;align-items:center;padding:var(--space-2xl) 0;text-align:center}
+.hero .wrap{width:100%}
+.hero .wrap > *{margin-inline:auto}
+.hero h1{font-size:var(--text-display);max-width:16ch;margin-bottom:var(--space-md)}
+.hero .acc{font-weight:500}
+
+/* Highlighter: a pale blue→violet band sweeps in behind the word once on load. */
+.hl{padding:0 .15em;border-radius:.3em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background:linear-gradient(90deg,var(--color-hl-1),var(--color-hl-2)) left center/0% 100% no-repeat;
+  animation:hl-sweep 1.4s var(--ease-out) .5s forwards}
+@keyframes hl-sweep{to{background-size:100% 100%}}
+@media(prefers-reduced-motion:reduce){.hl{animation:none;background-size:100% 100%}}
+.lede{font-size:var(--text-lg);color:var(--color-ink-2);max-width:48ch;margin:0 auto}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-xs);margin-top:var(--space-lg)}

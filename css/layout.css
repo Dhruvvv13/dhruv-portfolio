@@ -1,0 +1,56 @@
+/* Page shell: sticky top bar, content-height sections, the dark lower half, buttons. */
+.wrap{max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter)}
+section{padding:var(--space-3xl) 0;scroll-margin-top:4rem}
+.section-head{margin-bottom:var(--space-2xl)}
+
+/* The page turns dark partway down: tokens flip in tokens.css (.dark). */
+.dark{background:var(--color-paper);color:var(--color-ink)}
+
+/* Cream → night: a dot pinned mid-screen grows into a circle that fills the view as you scroll. */
+.flip{height:150vh;view-timeline:--flip block}
+.flip-stage{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}
+.flip-dot{position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;margin:-75vmax;border-radius:50%;background:var(--color-night);
+  transform:scale(.006);will-change:transform;
+  animation:flip-grow cubic-bezier(.65,0,.35,1) both;animation-timeline:--flip;animation-range:contain 0% contain 100%}
+@keyframes flip-grow{70%,100%{transform:scale(1)}}
+.flip-line{position:relative;margin:0;padding:0 var(--gutter);background:none;text-align:center;
+  font-family:var(--font-display);font-weight:600;font-size:var(--text-2xl);line-height:1.15;
+  opacity:0;animation:flip-text ease-out both;animation-timeline:--flip;animation-range:contain 0% contain 100%}
+.flip-line .acc{font-weight:500}
+@keyframes flip-text{0%,50%{opacity:0;transform:translateY(1.5rem)}80%,100%{opacity:1;transform:none}}
+/* No scroll-timeline support (Firefox) or reduced motion: plain cut to dark, no extra scroll. */
+@supports not (animation-timeline:view()){.flip{display:none}}
+@media(prefers-reduced-motion:reduce){.flip{display:none}}
+
+/* ---- top bar ---- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:var(--space-md);
+  padding:var(--space-sm) var(--gutter);
+  background:var(--color-nav);backdrop-filter:blur(10px); /* legibility over scrolled content */
+}
+.mark{font-family:var(--font-display);font-weight:600;font-size:var(--text-md);text-decoration:none;white-space:nowrap}
+.mark span{color:var(--color-accent)}
+.bar nav{display:flex;align-items:center;gap:var(--space-md);font-size:var(--text-sm)}
+.bar nav a{text-decoration:none;color:var(--color-ink-2);white-space:nowrap;transition:color var(--dur-short) var(--ease-out)}
+.bar nav a:hover,.bar nav a.on{color:var(--color-ink)}
+.bar .pill-link{color:var(--color-ink);border:1px solid var(--color-ink);border-radius:var(--radius-pill);padding:var(--space-2xs) var(--space-sm)}
+.bar .pill-link:hover{background:var(--color-ink);color:var(--color-paper)}
+@media(max-width:640px){.bar nav .opt{display:none}.bar nav{gap:var(--space-sm)}}
+
+/* ---- buttons (studied): solid dark pill + outlined pill ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:var(--space-2xs);white-space:nowrap;
+  padding:var(--space-xs) var(--space-md);border-radius:var(--radius-pill);
+  font-size:var(--text-sm);font-weight:500;text-decoration:none;border:1px solid transparent;
+  transition:background-color var(--dur-short) var(--ease-out),color var(--dur-short) var(--ease-out),border-color var(--dur-short) var(--ease-out);
+}
+.btn-dark{background:var(--color-ink);color:var(--color-paper)}
+.btn-dark:hover{background:var(--color-accent)}
+.btn-light{background:var(--color-ink);color:var(--color-paper)}  /* on .dark, ink is light */
+.btn-light:hover{background:var(--color-accent)}
+.btn-outline{border-color:var(--color-ink-3);color:var(--color-ink)}
+.btn-outline:hover{border-color:var(--color-ink)}
+.btn:active{transform:translateY(1px)}
+@media(max-width:480px){.bar nav .opt-xs{display:none}.bar{padding-inline:var(--space-sm)}}
+@media(max-width:360px){.mark{font-size:var(--text-sm)}.bar nav{gap:var(--space-xs)}.bar .pill-link{padding:var(--space-3xs) var(--space-xs)}}

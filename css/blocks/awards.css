@@ -1,0 +1,14 @@
+/* Achievements: a strip of headline numbers, then a compact dated list. */
+.award-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-md);
+  padding-bottom:var(--space-lg);border-bottom:1px solid var(--color-rule)}
+.award-stats b{display:block;font-family:var(--font-display);font-weight:600;font-size:var(--text-display);line-height:1;color:var(--color-accent)}
+.award-stats span{display:block;margin-top:var(--space-2xs);font-size:var(--text-sm);color:var(--color-ink-2)}
+
+.awards{list-style:none;padding:0;margin:0}
+.awards li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:var(--space-md);
+  padding:var(--space-md) 0;border-bottom:1px solid var(--color-rule)}
+.awards .yr{font-size:var(--text-sm);font-weight:600;color:var(--color-ink-3);font-variant-numeric:tabular-nums;padding-top:.2em}
+.awards strong{display:block;font-family:var(--font-display);font-weight:600;font-size:var(--text-lg);line-height:1.25}
+.awards .rank{color:var(--color-accent)}
+.awards .note{display:block;margin-top:var(--space-3xs);color:var(--color-ink-2);font-size:var(--text-sm)}
+@media(max-width:520px){.awards li{grid-template-columns:minmax(0,1fr);gap:var(--space-3xs)}}

@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Tokens converted from the static site's css/base.css palette (--bg,
+ * --panel, --line, --text, --muted, --accent) to shadcn's HSL-triplet
+ * format, so this widget sits flush with the rest of the page instead of
+ * introducing a second color system. Scoped to the mount root only —
+ * preflight is off (see tailwind.config.js) so this never touches :root.
+ */
+#skills-react-root {
+  --background: 213 28% 8%;
+  --foreground: 207 16% 89%;
+  --card: 212 24% 11%;
+  --card-foreground: 207 16% 89%;
+  --primary: 200 65% 65%;
+  --primary-foreground: 213 28% 8%;
+  --secondary: 212 24% 11%;
+  --secondary-foreground: 207 16% 89%;
+  --muted: 212 24% 11%;
+  --muted-foreground: 209 11% 59%;
+  --accent: 212 24% 11%;
+  --accent-foreground: 207 16% 89%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 207 16% 89%;
+  --border: 210 21% 17%;
+  --input: 210 21% 17%;
+  --ring: 200 65% 65%;
+  --radius: 0.5rem;
+
+  box-sizing: border-box;
+}
+#skills-react-root *,
+#skills-react-root *::before,
+#skills-react-root *::after {
+  box-sizing: inherit;
+}
+#skills-react-root button {
+  font: inherit;
+  color: inherit;
+}
+#skills-react-root a {
+  text-decoration: none;
+  color: inherit;
+}
+#skills-react-root p {
+  /* the static site's own css/base.css sets a global `p{max-width:62ch}`
+     for readable paragraphs; with preflight off that leaks in here too and
+     clips any <p> to ~62 characters wide regardless of its own width/
+     text-align utilities (this is what broke heading centering). */
+  max-width: none;
+}
+#skills-react-root section {
+  /* css/layout.css sets a global `section{display:flex; align-items:center;
+     padding:...; min-height:100svh}` for the site's own top-level sections
+     — with preflight off it applies to ANY <section>, including ones a
+     pasted component renders internally (not just the outer #skills
+     wrapper), turning what should be stacked blocks into a flex row and
+     adding a second, redundant full-viewport min-height/padding. Let
+     Tailwind utilities on the component's own <section> fully control it. */
+  display: block;
+  min-height: 0;
+  padding: 0;
+}
+#skills-react-root h1,
+#skills-react-root h2,
+#skills-react-root h3 {
+  /* same leak, from base.css's `h1,h2,h3{margin:0}` + `h2{margin-bottom:
+     2.5rem}` — harmless until a component's heading relies on its own
+     margin utilities (or none at all) instead. */
+  margin: 0;
+}
